@@ -96,14 +96,25 @@ public class RatingAnalyzerImpl
 
         int[] mode = new int[locations.size()];
 
-        // get int[] with number @ max freq locations
+         // get int[] with number @ max freq locations
         i=-1;
         for (Object location : locations){
             i+=1;
             mode[i] = (Integer)keyArray[(Integer)location];;
         }
 
+        if (noMode(mode, ratings)){
+            System.out.println("There is no mode");
+            return new int[0];
+        }
         return mode;
+    }
+
+    public boolean noMode(int[] a, int[] b){
+        if(a.length == b.length){
+            return true;
+        }
+       return false;
     }
 
 
